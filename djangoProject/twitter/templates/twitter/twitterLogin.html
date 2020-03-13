@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<head>
+  <title>Twitter Login Page</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<style>
+.UsernameCentering {
+  height: 200px;
+  width: 400px;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  right: 50%;
+  margin-top: -100px;
+  margin-left: -200px;
+}
+.PasswordInputCentering{
+  height: 200px;
+  width: 400px;
+
+  position: fixed;
+  top: 55%;
+  left: 50%;
+  margin-top: -100px;
+  margin-left: -200px;
+}
+.submitButton{
+  height: 200px;
+  width: 400px;
+
+  position: fixed;
+  top: 60%;
+  left: 60%;
+  margin-top: -100px;
+  margin-left: -200px;
+}
+}
+</style>
+<body>
+    <center><h1>Twitter!!!</h1></center>
+    <div class="row">
+      <div class = "UsernameCentering">
+        <!-- <form action="/twitter/login/" method="post"> -->
+        <form action='authenticate' method="post">
+          {% csrf_token %}
+          <label for="username">Username: </label>
+          <input id="username" type="text" name="username" maxlength="100" required>
+          <label for="password">Password: </label>
+          <input id="password" type="text" name="password" maxlength="100" required>
+          <input type="submit" value="Submit">
+        </form>
+      </div>
+    </div>
+  </form>
+</body>
+</html>
