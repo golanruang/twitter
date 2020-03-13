@@ -2,14 +2,6 @@ import datetime
 from django.db import models
 from django.utils import timezone
 
-class User(models.Model):
-    # User Object
-    username = models.CharField(max_length=50, default="")
-    firstName = models.CharField(max_length=50, default="")
-    lastName = models.CharField(max_length=50, default="")
-    password = models.CharField(max_length=25, default="")
-
-
 class Post(models.Model):
     # Post Object
     userName = models.CharField(max_length=45, default="no username")
@@ -17,3 +9,13 @@ class Post(models.Model):
     dateCreated = models.DateTimeField("datePosted",default='')
     likes = models.IntegerField(default = 0)
     userId = models.CharField(max_length=15, default='@')
+
+class User(models.Model):
+    # User Object
+    username = models.CharField(max_length=50, default="")
+    firstName = models.CharField(max_length=50, default="")
+    lastName = models.CharField(max_length=50, default="")
+    password = models.CharField(max_length=25, default="")
+    #posts = models.ForeignKey(Post, on_delete=models.CASCADE)
+    userFollowing = models.ForeignKey('self', on_delete=models.CASCADE, related_name='following')
+    #   userFollowers = models.ForeignKey('self', on_delete=models.CASCADE, related_name='followers')
