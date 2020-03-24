@@ -16,8 +16,6 @@ def authenticate(request):
                 'Password':user.password,
                 'First Name':user.firstName,
                 'Last Name':user.lastName,
-                'Email Address':user.emailAddress,
-                'User Id':user.userId,
             }
             return HttpResponseRedirect('login/')
     return render(request, 'twitter/twitterLogin.html', {'name': name,'password':password})
