@@ -5,3 +5,7 @@ class NameForm(forms.Form):
 
 class PasswordForm(forms.Form):
     password = forms.CharField(label='Password', max_length=100)
+
+class LikedBool(forms.Form):
+    likedBoolean = forms.BooleanField(initial=False)
+    
