@@ -1,10 +1,11 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from .models import User, Post
+from .models import User, Post, Comment
 from django.urls import reverse
 from django.views import generic
 from django.contrib.auth import authenticate
 from .forms import NameForm, PasswordForm
+
 def authenticate(request):
     username = request.POST['username']
     password = request.POST['password']
@@ -34,3 +35,10 @@ def twitterLogin(request):
     context = {}
 
     return render(request, 'twitter/twitterLogin.html', context)
+
+def addComment(request):
+    comment = request.POST['comment']
+
+    context = {}
+
+    return render(request, 'twitter/twitterPosts.html', context)

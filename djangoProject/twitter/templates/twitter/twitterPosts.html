@@ -31,6 +31,8 @@
         <p>{{post.likes}} likes {{post.dateCreated}}</p>
         <button type="button" onclick='changeColor()' id='likedBool' type='boolean' name='likedBool'>like</button>
     </div>
+    <label for="comment">Comment: </label>
+    <input id="comment" type="text" name="comment" maxlength="4000" required>
   </div>
 {% endfor %}
 

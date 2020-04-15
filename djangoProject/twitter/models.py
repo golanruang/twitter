@@ -8,8 +8,13 @@ class User(models.Model):
     firstName = models.CharField(max_length=50, default="")
     lastName = models.CharField(max_length=50, default="")
     password = models.CharField(max_length=25, default="")
-    followers = models.ManyToManyField('self')
-    following = models.ManyToManyField('self')
+    #followers = models.ManyToManyField('self')
+    #following = models.ManyToManyField('self')
+
+class Comment(models.Model):
+    bodyText = models.CharField(max_length=4000 ,default='no comment')
+    poster = models.OneToOneField(User,on_delete=models.CASCADE, primary_key = True)
+    dateCreated = models.DateTimeField("datePosted",default='')
 
 class Post(models.Model):
     # Post Object
@@ -18,4 +23,4 @@ class Post(models.Model):
     dateCreated = models.DateTimeField("datePosted",default='')
     likes = models.IntegerField(default = 0)
     userId = models.CharField(max_length=15, default='@')
-    likedBy = models.ManyToManyField(User)
+    #likedBy = models.ManyToManyField(User)
